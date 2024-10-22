@@ -7,15 +7,18 @@ export default function ChatInput() {
 
   const sendMessageHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const trimmedMessage = messageRef.current?.value.trim();
     if (inputRef.current) {
       inputRef.current.focus();
     }
-    ChatSocket.emit("chatting", {
-      nickname: localStorage.getItem("nickname"),
-      message: messageRef.current?.value,
-    });
-    if (messageRef.current) {
-      messageRef.current.value = "";
+    if (trimmedMessage) {
+      ChatSocket.emit("chatting", {
+        nickname: localStorage.getItem("nickname"),
+        message: messageRef.current?.value,
+      });
+      if (messageRef.current) {
+        messageRef.current.value = "";
+      }
     }
   };
 
