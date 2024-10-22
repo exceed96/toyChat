@@ -3,9 +3,13 @@ import { ChatSocket } from "../../util/ChatSocket";
 
 export default function ChatInput() {
   const messageRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const sendMessageHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
     ChatSocket.emit("chatting", {
       nickname: localStorage.getItem("nickname"),
       message: messageRef.current?.value,
