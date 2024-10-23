@@ -4,7 +4,7 @@ import ChatInput from "./ChatInput";
 export default function Chat() {
   return (
     <div className="flex flex-col bg-gray-100 w-full h-full xl:w-1/3 xl:h-1/2 p-5 border-[1px] border-black text-center relative">
-      <header className="flex justify-center items-center">
+      <header className="flex justify-center items-center border-b-[1px] border-black border-dashed pb-4">
         <h1 className="text-3xl font-[Chosunilbo] underline underline-offset-4">
           사 직 서
         </h1>
