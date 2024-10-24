@@ -3,14 +3,10 @@ import { ChatSocket } from "../../util/ChatSocket";
 
 export default function ChatInput() {
   const messageRef = useRef<HTMLInputElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const sendMessageHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const trimmedMessage = messageRef.current?.value.trim();
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
     if (trimmedMessage) {
       ChatSocket.emit("chatting", {
         nickname: localStorage.getItem("nickname"),
@@ -22,8 +18,16 @@ export default function ChatInput() {
     }
   };
 
+  const sendMessageFocusHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    (e.target as HTMLFormElement).focus();
+  };
+
   return (
-    <form className="w-full flex gap-2" onSubmit={sendMessageHandler}>
+    <form
+      className="w-full flex gap-2"
+      onSubmit={sendMessageHandler}
+      onFocus={sendMessageFocusHandler}
+    >
       <input
         placeholder="메세지를 입력하세요"
         className="outline-none w-[80%] font-[HANBatang] pt-2 pb-2 pl-2 rounded-[8px] border-[1px] border-black"

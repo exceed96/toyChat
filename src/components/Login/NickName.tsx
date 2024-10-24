@@ -25,6 +25,7 @@ export default function NickName(props: TNickNameProps) {
         type="text"
         id="nickname"
         className="text-center py-2 rounded-md"
+        maxLength={10}
         ref={nicknameRef}
       />
       <button className="px-2 py-1 bg-black text-white rounded-md">완료</button>
