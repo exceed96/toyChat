@@ -20,10 +20,12 @@ export default function ChatInput() {
         sendUserId: localStorage.getItem("id"),
       });
 
-      if (messageRef.current) {
-        messageRef.current.focus();
-        messageRef.current.value = "";
-      }
+      requestAnimationFrame(() => {
+        if (messageRef.current) {
+          messageRef.current.value = "";
+          messageRef.current.focus();
+        }
+      });
     }
   };
 
@@ -37,7 +39,10 @@ export default function ChatInput() {
       <button
         className="bg-black font-[HANBatang] text-white text-sm w-[20%] rounded-[8px] px-5"
         type="submit"
-        onClick={() => messageRef.current?.focus()}
+        onClick={(e) => {
+          e.preventDefault();
+          messageRef.current?.focus();
+        }}
       >
         전송
       </button>
