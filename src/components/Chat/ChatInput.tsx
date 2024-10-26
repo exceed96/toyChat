@@ -42,10 +42,7 @@ export default function ChatInput() {
         className="outline-none w-[80%] font-[HANBatang] pt-2 pb-2 pl-2 rounded-[8px] border-[1px] border-black"
         ref={messageRef}
       ></input>
-      <button
-        className="bg-black font-[HANBatang] text-white text-sm w-[20%] rounded-[8px] px-5"
-        type="button"
-      >
+      <button className="bg-black font-[HANBatang] text-white text-sm w-[20%] rounded-[8px] px-5">
         전송
       </button>
     </form>
