@@ -5,12 +5,6 @@ import { nanoid } from "nanoid";
 export default function ChatInput() {
   const messageRef = useRef<HTMLInputElement>(null);
 
-  const pressEnter = (e: React.KeyboardEvent<HTMLFormElement>) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-    }
-  };
-
   const sendMessageHandler = (e: React.FormEvent<HTMLFormElement>) => {
     if (e) {
       e.preventDefault();
