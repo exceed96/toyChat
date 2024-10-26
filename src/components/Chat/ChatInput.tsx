@@ -5,6 +5,12 @@ import { nanoid } from "nanoid";
 export default function ChatInput() {
   const messageRef = useRef<HTMLInputElement>(null);
 
+  const pressEnter = (e: React.KeyboardEvent<HTMLFormElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+    }
+  };
+
   const sendMessageHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!localStorage.getItem("id")) {
@@ -24,7 +30,11 @@ export default function ChatInput() {
   };
 
   return (
-    <form className="w-full flex gap-2" onSubmit={sendMessageHandler}>
+    <form
+      className="w-full flex gap-2"
+      onSubmit={sendMessageHandler}
+      onKeyPress={pressEnter}
+    >
       <input
         placeholder="메세지를 입력하세요"
         className="outline-none w-[80%] font-[HANBatang] pt-2 pb-2 pl-2 rounded-[8px] border-[1px] border-black"
