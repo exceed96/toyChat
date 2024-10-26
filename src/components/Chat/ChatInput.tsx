@@ -6,9 +6,7 @@ export default function ChatInput() {
   const messageRef = useRef<HTMLInputElement>(null);
 
   const sendMessageHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    if (e) {
-      e.preventDefault();
-    }
+    e.preventDefault();
     if (!localStorage.getItem("id")) {
       localStorage.setItem("id", nanoid());
     }
@@ -21,6 +19,7 @@ export default function ChatInput() {
       });
       if (messageRef.current) {
         messageRef.current.value = "";
+        messageRef.current.focus();
       }
     }
   };
