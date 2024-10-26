@@ -27,10 +27,6 @@ export default function ChatInput() {
     }
   };
 
-  const handleButtonClick = () => {
-    messageRef.current?.focus();
-  };
-
   return (
     <form className="w-full flex gap-2" onSubmit={sendMessageHandler}>
       <input
@@ -41,7 +37,7 @@ export default function ChatInput() {
       <button
         className="bg-black font-[HANBatang] text-white text-sm w-[20%] rounded-[8px] px-5"
         type="submit"
-        onClick={handleButtonClick}
+        onClick={() => messageRef.current?.focus()}
       >
         전송
       </button>
