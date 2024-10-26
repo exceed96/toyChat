@@ -48,12 +48,13 @@ export default function ChatShow() {
   return (
     <ul className="bg-transparent w-full h-full font-[HANBatang] flex flex-col gap-4 overflow-auto mb-3 scrollbar-hide">
       {chatLog.map((message: TMessage) => {
-        if (message.nickname === localStorage.getItem("nickname")) {
+        if (message.sendUserId === localStorage.getItem("id")) {
           return (
             <SendMessage
               nickname={message.nickname}
               message={message.message}
               timestamp={message.timestamp}
+              sendUserId={message.sendUserId}
             />
           );
         } else {
@@ -62,6 +63,7 @@ export default function ChatShow() {
               nickname={message.nickname}
               message={message.message}
               timestamp={message.timestamp}
+              sendUserId={message.sendUserId}
             />
           );
         }

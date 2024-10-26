@@ -2,6 +2,7 @@ export type TMessage = {
   nickname: string;
   message: string;
   timestamp: string;
+  sendUserId: string;
 };
 
 export type TChatLog = {
