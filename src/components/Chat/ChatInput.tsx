@@ -21,8 +21,8 @@ export default function ChatInput() {
       });
 
       if (messageRef.current) {
-        messageRef.current.value = "";
         messageRef.current.focus();
+        messageRef.current.value = "";
       }
     }
   };
