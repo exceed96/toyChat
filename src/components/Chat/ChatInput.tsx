@@ -39,10 +39,10 @@ export default function ChatInput() {
       <button
         className="bg-black font-[HANBatang] text-white text-sm w-[20%] rounded-[8px] px-5"
         type="submit"
-        onClick={(e) => {
-          e.preventDefault();
-          messageRef.current?.focus();
-        }}
+        // onClick={(e) => {
+        //   e.preventDefault();
+        //   messageRef.current?.focus();
+        // }}
       >
         전송
       </button>
