@@ -27,7 +27,11 @@ export default function ChatInput() {
   };
 
   const pressEnterHandler = (e: React.KeyboardEvent<HTMLFormElement>) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+    if (
+      e.key === "Enter" &&
+      !e.shiftKey &&
+      e.nativeEvent.isComposing === false
+    ) {
       e.preventDefault();
       sendMessageHandler(e);
     }
