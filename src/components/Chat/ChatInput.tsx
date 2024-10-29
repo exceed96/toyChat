@@ -14,8 +14,6 @@ export default function ChatInput() {
 
     if (messageRef.current) {
       const trimmedMessage = messageRef.current?.value.trim();
-      messageRef.current.value = "";
-      messageRef.current.focus();
       if (trimmedMessage) {
         ChatSocket.emit("chatting", {
           nickname: localStorage.getItem("nickname"),
@@ -23,6 +21,8 @@ export default function ChatInput() {
           sendUserId: localStorage.getItem("id"),
         });
       }
+      messageRef.current.value = "";
+      messageRef.current.focus();
     }
   };
 
