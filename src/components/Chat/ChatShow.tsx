@@ -11,7 +11,6 @@ export default function ChatShow() {
   const messageEndRef = useRef<HTMLLIElement>(null);
 
   const onMessageHandler = (message: TMessage) => {
-    console.log(message);
     setChatLog((prevState) => [...prevState, message]);
   };
 
