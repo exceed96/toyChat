@@ -19,13 +19,11 @@ export default function ChatInput() {
         message: trimmedMessage,
         sendUserId: localStorage.getItem("id"),
       });
-
-      requestAnimationFrame(() => {
-        if (messageRef.current) {
-          messageRef.current.value = "";
-          messageRef.current.focus();
-        }
-      });
+    }
+    if (messageRef.current) {
+      messageRef.current.value = "";
+      messageRef.current.disabled = false;
+      messageRef.current.focus();
     }
   };
 
