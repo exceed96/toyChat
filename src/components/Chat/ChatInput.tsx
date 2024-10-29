@@ -35,6 +35,10 @@ export default function ChatInput() {
     }
   };
 
+  const pressTypeHandler = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.nativeEvent.isComposing) return;
+  };
+
   return (
     <form
       className="w-full flex gap-2"
@@ -48,6 +52,7 @@ export default function ChatInput() {
         rows={1}
         maxLength={500}
         autoFocus={true}
+        onKeyDown={pressTypeHandler}
       />
       <button
         className="bg-black font-[HANBatang] text-white text-sm w-[20%] rounded-[8px] px-5"
