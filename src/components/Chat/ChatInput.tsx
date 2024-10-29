@@ -4,7 +4,6 @@ import { nanoid } from "nanoid";
 
 export default function ChatInput() {
   const messageRef = useRef<HTMLTextAreaElement>(null);
-
   const sendMessageHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -40,7 +39,7 @@ export default function ChatInput() {
     <form
       className="w-full flex gap-2"
       onSubmit={sendMessageHandler}
-      onKeyPress={pressEnterHandler}
+      onKeyDown={pressEnterHandler}
     >
       <textarea
         placeholder="메세지를 입력하세요"
