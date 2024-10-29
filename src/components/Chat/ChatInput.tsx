@@ -46,6 +46,7 @@ export default function ChatInput() {
         ref={messageRef}
         rows={1}
         maxLength={500}
+        autoFocus={true}
       />
       <button
         className="bg-black font-[HANBatang] text-white text-sm w-[20%] rounded-[8px] px-5"
