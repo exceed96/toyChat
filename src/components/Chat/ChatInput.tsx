@@ -12,18 +12,16 @@ export default function ChatInput() {
       localStorage.setItem("id", nanoid());
     }
 
-    const trimmedMessage = messageRef.current?.value.trim();
-    if (trimmedMessage) {
-      ChatSocket.emit("chatting", {
-        nickname: localStorage.getItem("nickname"),
-        message: trimmedMessage,
-        sendUserId: localStorage.getItem("id"),
-      });
-    }
     if (messageRef.current) {
+      const trimmedMessage = messageRef.current?.value.trim();
       messageRef.current.value = "";
-      messageRef.current.disabled = false;
-      messageRef.current.focus();
+      if (trimmedMessage) {
+        ChatSocket.emit("chatting", {
+          nickname: localStorage.getItem("nickname"),
+          message: trimmedMessage,
+          sendUserId: localStorage.getItem("id"),
+        });
+      }
     }
   };
 
