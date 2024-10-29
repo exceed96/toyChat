@@ -30,13 +30,6 @@ export default function ChatInput() {
       e.preventDefault();
       sendMessageHandler(e);
     }
-    if (e.nativeEvent.isComposing) {
-      return;
-    }
-  };
-
-  const pressTypeHandler = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.nativeEvent.isComposing) return;
   };
 
   return (
@@ -52,12 +45,8 @@ export default function ChatInput() {
         rows={1}
         maxLength={500}
         autoFocus={true}
-        onKeyDown={pressTypeHandler}
       />
-      <button
-        className="bg-black font-[HANBatang] text-white text-sm w-[20%] rounded-[8px] px-5"
-        type="submit"
-      >
+      <button className="bg-black font-[HANBatang] text-white text-sm w-[20%] rounded-[8px] px-5">
         전송
       </button>
     </form>
