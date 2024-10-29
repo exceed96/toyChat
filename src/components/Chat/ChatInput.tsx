@@ -34,6 +34,12 @@ export default function ChatInput() {
     }
   };
 
+  const messageInputHandler = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.nativeEvent.isComposing) {
+      return;
+    }
+  };
+
   return (
     <form
       className="w-full flex gap-2"
@@ -47,6 +53,7 @@ export default function ChatInput() {
         rows={1}
         maxLength={500}
         autoFocus={true}
+        onKeyDown={messageInputHandler}
       />
       <button className="bg-black font-[HANBatang] text-white text-sm w-[20%] rounded-[8px] px-5">
         전송
